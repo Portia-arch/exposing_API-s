@@ -33,7 +33,7 @@ const createTable = async function () {
     }
 };
 
-const addNewVisitor = async function (name, ass_name, age, date, time, comments) {
+const addNewVisitor = async function(name, ass_name, age, date, time, comments){
     try {
         const sql =
             "INSERT INTO Visitors(Visitor_Name, Assistant_Name, Visitor_Age, Date_Of_Visit, Time_Of_Visit, Comments) VALUES ($1, $2, $3, $4, $5, $6)  RETURNING *";
@@ -44,10 +44,6 @@ const addNewVisitor = async function (name, ass_name, age, date, time, comments)
     } catch (error) {
         console.log(error);
     }
-     res.status(200).json({
-         status: 'success',
-         data: results,
-         message: 'Retrieved ALL puppies'})
 };
 
 const listVisitors = async function () {
@@ -134,4 +130,3 @@ module.exports = {
     dropVisitors,
     viewVisitor
 };
-
