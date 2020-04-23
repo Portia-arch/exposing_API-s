@@ -29,9 +29,9 @@ app.get("/addNewVisitor", function (req, res) {
 createTable();
 // addNewVisitor();
 
-app.post("/addNewVisitor", async function(req, res) {
+app.post("/addNewVisitor", async function (req, res) {
     console.log(req.body.visitor_name)
-    
+
     let name = req.body.visitor_name;
     let ass_name = req.body.assistant_name;
     let age = req.body.visitor_age;
@@ -46,14 +46,14 @@ app.post("/addNewVisitor", async function(req, res) {
 
 
 // View(GET) all visitors 
-app.get('/view', async function(req, res) {
+app.get('/view', async function (req, res) {
     res.send(await listVisitors());
 
     res.end();
- });
+});
 
 // View(GET) of a specific object using a param in our path for the
-app.get('/viewVisitor:id', async function(req, res) { 
+app.get('/viewVisitor:id', async function (req, res) {
     // console.log(req.params.id)
 
     let id = req.params.id
@@ -62,22 +62,22 @@ app.get('/viewVisitor:id', async function(req, res) {
 });
 
 // Update(PATCH) a visitor using using a param in our path for the
-app.patch('/updateVisitor:id', async function(req, res) { 
-    
+app.patch('/updateVisitor:id', async function (req, res) {
+
     let name = req.body.visitor_name;
     let ass_name = req.body.assistant_name;
     let age = req.body.visitor_age;
     let date = req.body.date;
     let time = req.body.time;
     let comment = req.body.comment;
-    
-    res.send(await updateVisitor(req.params.id,  name, ass_name, age, date, time, comment));
+
+    res.send(await updateVisitor(req.params.id, name, ass_name, age, date, time, comment));
 
     res.end();
 });
 
 // Delete a specific object using a param in our path for the
-app.delete('/delete:id', async function (req, res) { 
+app.delete('/delete:id', async function (req, res) {
     res.send(await deleteVisitor(req.params.id));
 
     res.end();
