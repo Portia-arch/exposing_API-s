@@ -1,5 +1,5 @@
 //importing dependicie
-const { createTable, addNewVisitor, listVisitors, viewVisitor, updateVisitor, deleteVisitor } = require('../src/database.js')
+const { createTable, addNewVisitor, listVisitors, viewVisitor, updateVisitor, deleteVisitor, dropVisitors } = require('../src/database.js')
 const express = require('express');
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -85,6 +85,9 @@ app.delete('/delete:id', async function (req, res) {
 
 // Delete all visitors
 app.delete('/delete', async function (req, res) {
+    res.send(await dropVisitors());
+
+    res.end();
 });
 
 const port = 3001;

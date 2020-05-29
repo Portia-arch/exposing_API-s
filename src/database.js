@@ -8,11 +8,6 @@ const pool = new Pool({
     port: 5432
 });
 
-// pool.connect(function (err, res) {
-//     if (err) console.log(err);
-//      console.log(res)
-// });
-
 const createTable = async function () {
     try {
         const sql = await pool.query(
